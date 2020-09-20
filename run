@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+repl = lambda do |prompt|
+  print prompt
+  handle_input(gets.chomp!)
+end
+
+loop do
+  repl['➡️   ']
+end
