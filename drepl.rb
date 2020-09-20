@@ -1,8 +1,15 @@
 FILE_LOCATION = 'store'.freeze
 MAP = {}.freeze
 
-# REPL utilities
-class REPL
+# REPL utilities to access distributed store
+class DREPL
+  def handle_input(input)
+    result = parse_command(input)
+    puts(" 🖨️  #{result}")
+  end
+
+  private
+
   def read_mapping
     bmap = File.read(FILE_LOCATION)
     Marshal.load(bmap)
@@ -56,10 +63,5 @@ class REPL
     else
       "Command #{instruction} not found"
     end
-  end
-
-  def handle_input(input)
-    result = parse_command(input)
-    puts(" 🖨️  #{result}")
   end
 end
